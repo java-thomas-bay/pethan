@@ -17,7 +17,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService us;
 
-    @PostMapping("/cadastrar")
+
     public Usuario salvar(@RequestBody Usuario usuario, @RequestParam String senha, @RequestParam String confSenha) {
         return us.salvar(usuario, senha, confSenha);
     }
