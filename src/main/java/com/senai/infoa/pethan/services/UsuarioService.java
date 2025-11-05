@@ -13,8 +13,11 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository ur;
 
-    public Usuario salvar(Usuario usuario){
-        return ur.save(usuario);
+    public Usuario salvar(Usuario usuario, String senha, String confSenha){
+        if(senha.equals(confSenha)){
+            return ur.save(usuario);
+        }
+        return null;
     }
 
     public String login(String email, String senha){

@@ -2,14 +2,13 @@ package com.senai.infoa.pethan.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infoa.pethan.models.Usuario;
 import com.senai.infoa.pethan.services.UsuarioService;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/usuario")
@@ -19,8 +18,8 @@ public class UsuarioController {
     private UsuarioService us;
 
     @PostMapping("/cadastrar")
-    public Usuario salvar(@RequestBody Usuario usuario) {
-        return us.salvar(usuario);
+    public Usuario salvar(@RequestBody Usuario usuario, @RequestParam String senha, @RequestParam String confSenha) {
+        return us.salvar(usuario, senha, confSenha);
     }
 
    @PostMapping("/login")
