@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.info.Info;
     info = @Info(
         title="Pethan",
         version="1.0",
-        description = "Feliz Navidad"
+        description = "Grupo: Pedro Francisco, João Pedro, Guilherme Rodrigues, João Francisco, Thomas Bayão"
     )
 )
 
