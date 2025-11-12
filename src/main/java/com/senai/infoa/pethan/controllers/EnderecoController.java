@@ -1,9 +1,9 @@
 package com.senai.infoa.pethan.controllers;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,8 +24,13 @@ public class EnderecoController {
         return enderecoService.salvar(cep, numero, referencia);
     }
 
-      @GetMapping("/listar")
-    public List<Endereco> listarTodos() {
-        return enderecoService.listarTodos();
+       @GetMapping("/buscar/{id}")
+    public String buscar(@PathVariable Integer id) {
+        boolean buscou = enderecoService.buscar(id);
+        if (buscou) {
+            String texto = "Endereço " + id + "encontrado com sucesso";
+            return texto;
+        }
+        return "Falha ao buscar o usuário";
     }
 }

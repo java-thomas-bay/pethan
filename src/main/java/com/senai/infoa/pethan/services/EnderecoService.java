@@ -1,6 +1,5 @@
 package com.senai.infoa.pethan.services;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,15 @@ public class EnderecoService {
         return endereco;
     }
     
-    public List<Endereco> listarTodos(){
-        return enderecoRepository.findAll();
-    }
+        public boolean buscar(Integer Id) {
+        Endereco endereco = enderecoRepository.findById(Id).get();
+        if(endereco != null){
+           enderecoRepository.findById(Id);
+            return true;
+  
+        }
+
+        return false;
+
+}
 }
