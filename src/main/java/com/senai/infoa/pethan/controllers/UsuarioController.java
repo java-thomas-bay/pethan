@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
    @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String senha) {
+    public Usuario login(@RequestParam String email, @RequestParam String senha) {
         return us.login(email, senha);
     }
 

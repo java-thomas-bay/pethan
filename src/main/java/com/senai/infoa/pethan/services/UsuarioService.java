@@ -22,12 +22,12 @@ public class UsuarioService {
         return null;
     }
 
-    public String login(String email, String senha){
+    public Usuario login(String email, String senha){
         Usuario usuario = ur.findByUsuario(email, senha);
         if(usuario != null && senha.equals(usuario.getSenha())){
-            return "Login efetuado com sucesso!";
+            return usuario;
         }
-        return "Falha ao realizar o login";
+        return null;
     }
 
     public Usuario atualizar(Usuario usuario, Integer id){
